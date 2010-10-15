@@ -31,12 +31,10 @@ class Pomodoro
   
   def run_pomo(pomo=true)
     if pomo
-      # sleep POMO_DURATION_IN_MINS*60
-      sleep 6
+      sleep POMO_DURATION_IN_MINS*60
       after_pomo
     else
-      # sleep BREAK_DURATION_IN_MINS*60
-      sleep 3
+      sleep BREAK_DURATION_IN_MINS*60
       after_break
     end
     run_pomo(!pomo)
