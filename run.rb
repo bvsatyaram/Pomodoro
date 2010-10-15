@@ -1,4 +1,5 @@
-require 'pomodoro'
+require 'tray_application'
+require 'input_handler'
 
-pom = Pomodoro.new
-pom.start
+tray_app = TrayApplication.new("Pomodoro", "pomodoro_systray.png")
+InputHandler.reset_systray_icons(tray_app)

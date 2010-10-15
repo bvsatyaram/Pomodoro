@@ -18,20 +18,15 @@ class Pomodoro
   end
   
   def display_message(msg)
-    self.msg_thread.kill unless self.msg_thread.nil?
     self.msg_thread = Thread.new {OutputHandler.show_message(msg)}
   end
   
   def after_pomo
-    puts "Pomo Done! Now take break. \n"
     display_message("Pomo Done! Now take a break.")
-    # Show notification
   end
   
   def after_break
-    puts "Your break time is over. Start on the next pomo. \n"
     display_message("Break Done!")
-    # Show notification
   end
   
   def run_pomo(pomo=true)
