@@ -1,21 +1,36 @@
 require 'thread'
+require 'output_handler'
 
 class Pomodoro
+  # include Java
+  #import java.awt.*
+  #import javax.swing.*
+
   POMO_DURATION_IN_MINS = 25
   BREAK_DURATION_IN_MINS = 5
   
   attr_accessor :pomo_thread
+  attr_accessor :msg_thread
+  
+  
   
   def initialize
   end
   
+  def display_message(msg)
+    self.msg_thread.kill unless self.msg_thread.nil?
+    self.msg_thread = Thread.new {OutputHandler.show_message(msg)}
+  end
+  
   def after_pomo
     puts "Pomo Done! Now take break. \n"
+    display_message("Pomo Done! Now take a break.")
     # Show notification
   end
   
   def after_break
     puts "Your break time is over. Start on the next pomo. \n"
+    display_message("Break Done!")
     # Show notification
   end
   
@@ -37,7 +52,7 @@ class Pomodoro
   end
   
   def terminate
-    self.pomo_thread.exit
+    self.pomo_thread.kill unless self.pomo_thread.nil?
   end
   
   def restart
