@@ -1,0 +1,21 @@
+Pomodoro Desktop Application
+============================
+
+Once started, an icon should be living in system tray
+The system tray icon should have the following options:
+- Start a new pomo
+- About Pomo
+- Exit
+
+Clicking on a start pomo should start a new pomo in the background. Hovering on the system tray icon should show the count down time.
+Once the pomo is done, a notification has to be shown, saying that the pomo is over and can take a break for 5 mins.
+A new pomo has to start, with a notification, once the break time is over.
+
+Clicking on 'About Pomo' should popup a window giving some basic info about pomo.
+
+Clicking Exit should exit the application
+
+
+- Can we include sounds effects?
+- Can we improve styles?
+- Can we have the time in mins left as text on the system tray icon?
